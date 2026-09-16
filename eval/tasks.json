@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "q": "vllm 挂了怎么办",
+      "expected_intent": "oom",
+      "expected_plan": ["kb_query", "k8s_describe", "k8s_restart"],
+      "expected_doc": "kb-oomkilled"
+    },
+    {
+      "q": "pod 一直起不来",
+      "expected_intent": "crashloop",
+      "expected_plan": ["kb_query", "k8s_describe"],
+      "expected_doc": "kb-crashloop"
+    },
+    {
+      "q": "推理 p99 好慢",
+      "expected_intent": "latency",
+      "expected_plan": ["kb_query", "k8s_describe"],
+      "expected_doc": "kb-p99"
+    },
+    {
+      "q": "网关 5xx 报错了",
+      "expected_intent": "5xx",
+      "expected_plan": ["kb_query"],
+      "expected_doc": "kb-5xx"
+    },
+    {
+      "q": "pod 一直重启不起来",
+      "expected_intent": "crashloop",
+      "expected_plan": ["kb_query", "k8s_describe"],
+      "expected_doc": "kb-crashloop"
+    }
+  ]
+}
