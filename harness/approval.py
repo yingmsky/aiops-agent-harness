@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """人工介入（human-in-the-loop）审批门。
 
-JD 原文要求的机制之一：「人工介入」。这里的关键不是「弹个确认框」，而是：
+关键不是「弹个确认框」，而是：
 
 > **`userConfirmed: true` 不是授权。**
 
@@ -56,8 +56,8 @@ class ApprovalOutcome:
 class ApprovalGate:
     """审批门。mode: auto（自动批准）/ deny（自动拒绝）/ timeout（模拟无人响应）。
 
-    真实系统里审批来自 IM / 工单 / Webhook；这里用 mode 把三条分支都跑出来，
-    因为面试能讲清「三种出口分别把系统留在什么状态」比「做了审批」值钱。
+    真实系统里审批来自 IM / 工单 / Webhook；这里用 mode 把三条分支都跑出来：
+    granted / denied / timeout，三者把系统留在不同的状态。
     """
 
     def __init__(self, mode: str = "auto", timeout: float = 3.0):

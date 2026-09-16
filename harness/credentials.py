@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """凭证代管（Credential Broker）——本项目最关键的一块。
 
-对标的 JD 原文（小红书 Agent 工程平台）：
-    「建设 Agent Harness 与 Runtime —— 凭证管理、权限控制、多租户资源隔离」
-
-设计三原则（面试讲这三句就够）：
+Agent 拿着凭证去调用工具，风险集中在三处：凭证被写进 prompt、被复述进日志、
+被长期持有。对应三条设计要求（每一条都在代码层强制，不依赖 prompt 约束）：
   1. **不进 prompt**：模型与 Agent 循环里只出现 cred_ref，绝不出现明文。
   2. **不进 trace / 日志**：所有出站文本（SSE 事件、trace 落盘、工具参数）先过脱敏。
   3. **用完即弃（Zero Standing Privilege）**：JIT 签发，TTL 短，任务结束 / 换参数即失效。

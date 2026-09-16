@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """任务级 eval harness。
 
-JD 里几乎每个 Agent 岗都写 eval pipeline / regression detection —— 这是这条路的硬通货。
-这里给的不是「跑一遍看感觉」，是**可回归的数字**：
+这里的每个指标都是可回归的数字，不是「跑一遍看感觉」：
 
   tool_accuracy         工具选择准确率
   citation_accuracy     引用正确率

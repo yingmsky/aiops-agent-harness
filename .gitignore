@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# 本地设计笔记，不随仓库发布
+DECISIONS.md
